@@ -1,0 +1,26 @@
+banco:                    3  # (1..3) ... Código do Banco na Compensação
+lote:                     4  # (4..7) ... Lote de Serviço
+registro:                 1  # (8..8) ... Tipo de Registro
+operação:                 1  # (9..9) ... Tipo da Operação
+serviço:                  2  # (10..11) . Tipo de Serviço
+forma:                    2  # (12..13) . Forma de Lançamento
+layout:                   3  # (14..16) . Nº da Versão do Layout do Lote
+reservado_08_1:           1  # (17..17) . Uso Exclusivo FEBRABAN/CNAB
+emp_tipo_insc:            1  # (18..18) . Tipo de Inscrição da Empresa
+emp_num_insc:            14  # (19..32) . Número de Inscrição da Empresa
+conv_banco:              20  # (33..52) . Código do Convênio no Banco
+agência:                  5  # (53..57) . Agência Mantenedora da Conta
+agência_dv:               1  # (58..58) . Dígito Verificador da Agência
+conta_corrente:          12  # (59..70) . Número da Conta Corrente
+conta_corrente_dv:        1  # (71..71) . Dígito Verificador da Conta
+ag_conta_dv:              1  # (72..72) . Dígito Verificador da Ag/Conta
+nome:                    30  # (73..102)  Nome da Empresa
+reservado_18_1:          40  # (103..142) Uso Exclusivo da FEBRABAN/CNAB
+data_saldo_inicial:       8  # (143..150) Data do Saldo Inicial
+saldo_inicial:           18  # (151..168) Valor do Saldo Inicial
+situação_saldo_inicial:   1  # (169..169) Situação do Saldo Inicial
+posição_saldo_inicial:    1  # (170..170) Posição do Saldo Inicial
+moeda:                    3  # (171..173) Moeda Referenciada no Extrato
+sequência:                5  # (174..178) Número de Seqüência do Extrato
+reservado_25_1:          62  # (179..240) Uso Exclusivo FEBRABAN/CNAB
+
