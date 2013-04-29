@@ -16,7 +16,7 @@ class String
 
   def date_convert(from, to)
     from_date = DateTime.strptime(self,from) # Import from 'from' DateTime format
-    to_date = from_date.strftime("%Y%m%d") # Export to 'to' DateTime format
+    to_date = from_date.strftime(to) # Export to 'to' DateTime format
   end
 end
 
@@ -80,8 +80,7 @@ class CNAB240
 
   def get_dtserver
     cnab_date_string = @cnab240[:header_de_arquivo][:data_arquivo]+@cnab240[:header_de_arquivo][:hora_arquivo]
-    cnab_dtserver = DateTime.strptime(cnab_date_string,"%d%m%Y%H%M%S") # Import CNAB DateTime format
-    @dtserver = cnab_dtserver.strftime("%Y%m%d%H%M%S") # Export OFX DateTime format
+    cnab_date_string.date_convert "%d%m%Y%H%M%S", "%Y%m%d%H%M%S"
   end
 
   def get_org
@@ -109,9 +108,8 @@ class CNAB240
   end
   
   def get_dtasof
-    cnab_dtasof_string = @cnab240[:trailer_de_lote][:data_saldo_final]
-    cnab_dtasof = DateTime.strptime(cnab_dtasof_string,"%d%m%Y") # Import CNAB DateTime format
-    @dtasof = cnab_dtasof.strftime("%Y%m%d") # Export OFX DateTime format
+    cnab_date_string = @cnab240[:trailer_de_lote][:data_saldo_final]
+    cnab_date_string.date_convert "%d%m%Y", "%Y%m%d"
   end
 
   def get_transactions
@@ -137,3 +135,4 @@ pp cnab240.dtserver
 pp cnab240.fid
 pp cnab240.org
 pp cnab240.to_ofx
+
