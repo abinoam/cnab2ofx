@@ -1,0 +1,24 @@
+banco: 3   # (1..3) Código do Banco na Compensação
+lote: 4   # (4..7) Lote de Serviço
+registro: 1   # (8..8) Tipo de Registro
+reservado_04_5: 9   # (9..17) Uso Exclusivo FEBRABAN / CNAB
+emp_tipo_insc: 1   # (18..18) Tipo de Inscrição da Empresa
+emp_num_insc: 14   # (19..32) Número de Inscrição da Empresa
+conv_banco: 20   # (33..52) Código do Convênio no Banco
+agência: 5   # (53..57) Agência Mantenedora da Conta
+agência_dv: 1   # (58..58) Dígito Verificador da Agência
+conta_corrente: 12   # (59..70) Número da Conta Corrente
+conta_corrente_dv: 1   # (71..71) Dígito Verificador da Conta
+ag_conta_dv: 1   # (72..72) Dígito Verificador da Ag/Conta
+nome: 30   # (73..102) Nome da Empresa
+nome_banco: 30   # (103..132) Nome do Banco
+reservado_15_0: 10   # (133..142) Uso Exclusivo FEBRABAN / CNAB
+cód_remessa: 1   # (143..143) Código Remessa / Retorno
+data_arquivo: 8   # (144..151) Data de Geração do Arquivo
+hora_arquivo: 6   # (152..157) Hora de Geração do Arquivo
+num_seq_arquivo: 6   # (158..163) Número Seqüencial do Arquivo
+num_versão_layout: 3   # (164..166) No da Versão do Layout do Arquivo
+densidade_grav_arquivo: 5   # (167..171) Densidade de Gravação do Arquivo
+reservado_banco: 20   # (172..191) Para Uso Reservado do Banco
+reservado_empresa: 20   # (192..211) Para Uso Reservado da Empresa
+reservado_24_0: 29   # (212..240) Uso Exclusivo FEBRABAN / CNAB

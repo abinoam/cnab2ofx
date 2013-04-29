@@ -1,0 +1,24 @@
+banco:                      3   # (1..3) Código do Banco na Compensação
+lote:                       4   # (4..7) Lote de Serviço
+registro:                   1   # (8..8) Tipo de Registro
+reservado_04_5:             9   # (9..17) Uso Exclusivo da FEBRABAN/CNAB
+emp_tipo_insc:              1   # (18..18) Tipo de Inscrição da Empresa
+emp_num_insc:              14   # (19..32) Número de Inscrição da Empresa
+conv_banco:                20   # (33..52) Código do Convênio no Banco
+agência:                    5   # (53..57) Agência Mantenedora da Conta
+agência_dv:                 1   # (58..58) Dígito Verificador da Agência
+conta_corrente:            12   # (59..70) Número da Conta Corrente
+conta_corrente_dv:          1   # (71..71) Dígito Verificador da Conta
+ag_conta_dv:                1   # (72..72) Dígito Verificador da Ag/Conta
+reservado_13_5:            16   # (73..88) Uso Exclusivo da FEBRABAN/CNAB
+saldo_bloqueado_acima_24h: 18   # (89..106) Saldo Bloqueado Acima 24 horas
+limite_conta:              18   # (107..124) Limite da Conta
+saldo_bloqueado_até_24h:   18   # (125..142) Saldo Bloqueado até 24 Horas
+data_saldo_final:           8   # (143..150) Data do Saldo Final
+valor_saldo_final:         18   # (151..168) Valor do Saldo Final
+situação_saldo_final:       1   # (169..169) Situação do Saldo Final
+status_saldo_final:         1   # (170..170) Posição do Saldo Final
+qtd_reg_lote:               6   # (171..176) Quantidade de Registros do Lote
+débitos_valor:             18   # (177..194) Somatória dos Valores a Débito
+créditos_valor:            18   # (195..212) Somatória dos Valores a Crédito
+reservado_24_5:            28   # (213..240) Uso Exclusivo da FEBRABAN/CNAB

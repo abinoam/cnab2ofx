@@ -1,0 +1,8 @@
+banco:            3   # (1..3) Código do Banco na Compensação
+lote:             4   # (4..7) Lote de Serviço
+registro:         1   # (8..8) Tipo de Registro
+reservado_04_9:   9   # (9..17) Uso Exclusivo FEBRABAN/CNAB
+qtd_lotes:        6   # (18..23) Quantidade de Lotes do Arquivo
+qtd_registros:    6   # (24..29) Quantidade de Registros do Arquivo
+qtd_contas:       6   # (30..35) Qtde de Contas p/ Conc. (Lotes)
+reservado_08_9: 205   # (36..240) Uso Exclusivo FEBRABAN/CNAB

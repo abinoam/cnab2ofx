@@ -1,0 +1,29 @@
+banco:                3   # (1..3) Código no Banco da Compensação
+lote:                 4   # (4..7) Lote de Serviço
+registro:             1   # (8..8) Tipo de Registro
+num_registro:         5   # (9..13) Nº Seqüencial do Registro no Lote
+segmento:             1   # (14..14) Código Segmento do Reg. Detalhe
+reservado_06_3:       3   # (15..17) Uso Exclusivo FEBRABAN/CNAB
+emp_tipo_insc:        1   # (18..18) Tipo de Inscrição da Empresa
+emp_num_insc:        14   # (19..32) Número de Inscrição da Empresa
+conv_banco:          20   # (33..52) Código do Convênio no Banco
+agência:              5   # (53..57) Agência Mantenedora da Conta
+agência_dv:           1   # (58..58) Dígito Verificador da Agência
+conta_corrente:      12   # (59..70) Número da Conta Corrente
+conta_corrente_dv:    1   # (71..71) Dígito Verificador da Conta
+ag_conta_dv:          1   # (72..72) Dígito Verificador da Ag/Conta
+nome:                30   # (73..102) Nome da Empresa
+reservado_18_1:       6   # (103..108) Uso Exclusivo da FEBRABAN/CNAB
+natureza:             3   # (109..111) Natureza do Lançamento
+tipo_complemento:     2   # (112..113) Tipo do Complemento Lançamento
+complemento:         20   # (114..133) Complemento do Lançamento
+isenção_cpmf:         1   # (134..134) Identificação de Isenção do CPMF
+data_contábil:        8   # (135..142) Data Contábil
+data_lançamento:      8   # (143..150) Data do Lançamento
+valor_lançamento:    18   # (151..168) Valor do Lançamento
+tipo_lançamento:      1   # (169..169) Tipo Lançamento: Valor a Déb./Créd.
+categoria_lançamento: 3   # (170..172) Categoria do Lançamento
+cód_histórico:        4   # (173..176) Código Histórico no Banco
+desc_histórico:      25   # (177..201) Descrição Histórico Lcto. no Banco
+num_documento:       39   # (202..240) Número Documento/Complemento
+
