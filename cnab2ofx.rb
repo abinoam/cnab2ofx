@@ -13,6 +13,11 @@ class String
   def trim_lzeroes
     self.to_i.to_s
   end
+
+  def date_convert(from, to)
+    from_date = DateTime.strptime(self,from) # Import from 'from' DateTime format
+    to_date = from_date.strftime("%Y%m%d") # Export to 'to' DateTime format
+  end
 end
 
 class CNAB240
@@ -20,16 +25,16 @@ class CNAB240
   attr_reader :cnab240, :dtserver, :org, :fid
   
   def initialize(filename)
-    @filename =   filename
-    @cnab240 =    parse
-    @dtserver =   get_dtserver
-    @org = @fid = get_org
-    @bankid =     get_bankid
-    @branchid =   get_branchid
-    @acctid =     get_acctid
-    @balamt =     get_balamt
-    @transactions = [{},{}]
-
+    @filename =     filename
+    @cnab240 =      parse
+    @dtserver =     get_dtserver
+    @org = @fid =   get_org
+    @bankid =       get_bankid
+    @branchid =     get_branchid
+    @acctid =       get_acctid
+    @balamt =       get_balamt
+    @dtasof =       get_dtasof
+    @transactions = get_transactions
   end
   
   def to_ofx
@@ -102,7 +107,23 @@ class CNAB240
   def get_balamt
     @cnab240[:trailer_de_lote][:valor_saldo_final].to_f / 100
   end
+  
+  def get_dtasof
+    cnab_dtasof_string = @cnab240[:trailer_de_lote][:data_saldo_final]
+    cnab_dtasof = DateTime.strptime(cnab_dtasof_string,"%d%m%Y") # Import CNAB DateTime format
+    @dtasof = cnab_dtasof.strftime("%Y%m%d") # Export OFX DateTime format
+  end
 
+  def get_transactions
+    t = @cnab240[:detalhe_segmento_e].map do |h|
+       hash = Hash.new
+       hash[:dtposted] = h[:data_lançamento].date_convert("%d%m%Y", "%Y%m%d")
+       hash
+    end
+    puts "Transactions"
+    pp t
+  end
+    
 end
 
 
