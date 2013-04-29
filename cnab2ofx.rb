@@ -20,13 +20,14 @@ class CNAB240
   attr_reader :cnab240, :dtserver, :org, :fid
   
   def initialize(filename)
-    @filename = filename
-    @cnab240 = parse
-    @dtserver = get_dtserver
+    @filename =   filename
+    @cnab240 =    parse
+    @dtserver =   get_dtserver
     @org = @fid = get_org
-    @bankid = get_bankid
-    @branchid = get_branchid
-    @acctid = get_acctid
+    @bankid =     get_bankid
+    @branchid =   get_branchid
+    @acctid =     get_acctid
+    @balamt =     get_balamt
     @transactions = [{},{}]
 
   end
@@ -96,6 +97,10 @@ class CNAB240
   def get_acctid
     @cnab240[:header_de_arquivo][:conta_corrente].trim_lzeroes + "-" +
     @cnab240[:header_de_arquivo][:conta_corrente_dv].trim_lzeroes
+  end
+
+  def get_balamt
+    @cnab240[:trailer_de_lote][:valor_saldo_final].to_f / 100
   end
 
 end
