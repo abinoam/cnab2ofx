@@ -26,6 +26,7 @@ class CNAB240
     @org = @fid = get_org
     @bankid = get_bankid
     @branchid = get_branchid
+    @acctid = get_acctid
     @transactions = [{},{}]
 
   end
@@ -91,6 +92,12 @@ class CNAB240
     @cnab240[:header_de_arquivo][:agência].trim_lzeroes + "-" +
     @cnab240[:header_de_arquivo][:agência_dv].trim_lzeroes
   end
+
+  def get_acctid
+    @cnab240[:header_de_arquivo][:conta_corrente].trim_lzeroes + "-" +
+    @cnab240[:header_de_arquivo][:conta_corrente_dv].trim_lzeroes
+  end
+
 end
 
 
