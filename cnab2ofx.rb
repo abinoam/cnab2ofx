@@ -7,7 +7,7 @@ require 'date'
 require 'erb'
 
 CONFIG_DIR = 'config'
-VIEW_DIR = 'view' 
+VIEW_DIR   = 'view' 
 
 class String
   def trim_lzeroes
@@ -28,6 +28,8 @@ class CNAB240
     @filename =     filename
     @cnab240 =      parse
     @dtserver =     get_dtserver
+    @dtstart =      get_dtstart
+    @dtend =        get_dtend
     @org = @fid =   get_org
     @bankid =       get_bankid
     @branchid =     get_branchid
@@ -38,7 +40,7 @@ class CNAB240
   end
   
   def to_ofx
-    ERB.new(File.read(File.join(VIEW_DIR, "extrato.ofx.erb"))).run(binding)
+    ERB.new(File.read(File.join(VIEW_DIR, "extrato.ofx.erb"))).result(binding)
   end
   
   private
@@ -83,6 +85,18 @@ class CNAB240
     cnab_date_string.date_convert "%d%m%Y%H%M%S", "%Y%m%d%H%M%S"
   end
 
+  def get_dtstart
+    cnab_date_string = @cnab240[:header_de_lote][:data_saldo_inicial]
+    cnab_date_string.date_convert "%d%m%Y", "%Y%m%d"
+  end
+
+  def get_dtend
+    cnab_date_string = @cnab240[:trailer_de_lote][:data_saldo_final]
+    cnab_date_string.date_convert "%d%m%Y", "%Y%m%d"
+  end
+
+  alias get_dtasof get_dtend
+
   def get_org
     @org = @fid = @cnab240[:header_de_arquivo][:nome_banco].strip
   end
@@ -106,11 +120,8 @@ class CNAB240
   def get_balamt
     @cnab240[:trailer_de_lote][:valor_saldo_final].to_f / 100
   end
-  
-  def get_dtasof
-    cnab_date_string = @cnab240[:trailer_de_lote][:data_saldo_final]
-    cnab_date_string.date_convert "%d%m%Y", "%Y%m%d"
-  end
+
+
 
   def get_transactions
     t = @cnab240[:detalhe_segmento_e].map do |h|
@@ -134,5 +145,5 @@ pp cnab240.cnab240
 pp cnab240.dtserver
 pp cnab240.fid
 pp cnab240.org
-pp cnab240.to_ofx
-
+puts cnab240.to_ofx
+p cnab240.to_ofx.class

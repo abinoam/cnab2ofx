@@ -39,8 +39,8 @@ NEWFILEUID:NONE
                     <ACCTTYPE>CHECKING
                 </BANKACCTFROM>
                 <BANKTRANLIST>
-                    <DTSTART><%=@dtserver%>
-                    <DTEND><%=@dtserver%>
+                    <DTSTART><%=@dtstart%>
+                    <DTEND><%=@dtend%>
                   <% @transactions.each do |t| %>
                     <STMTTRN>
                         <TRNTYPE>OTHER
