@@ -9,9 +9,15 @@ require 'erb'
 CONFIG_DIR = 'config'
 VIEW_DIR   = 'view' 
 
+#TODO: Solve the encoding problem
+
 class String
   def trim_lzeroes
-    self.to_i.to_s
+    self.sub(/^0+/,"")
+  rescue ArgumentError => e
+    i = self.encode("utf-8", "iso-8859-1") # Brazilian encoding used by some banks
+    i.sub(/^0+/,"")
+    i.encode("iso-8859-1", "utf-8")
   end
 
   def date_convert(from, to)
@@ -22,7 +28,9 @@ end
 
 class CNAB240
 
-  attr_reader :cnab240, :dtserver, :org, :fid
+  attr_reader :cnab240, :dtserver, :dtstart, :dtend,
+              :org, :fid, :bankid, :branchid, :acctid,
+              :balamt, :dtasof, :transactions
   
   def initialize(filename)
     @filename =     filename
@@ -121,30 +129,31 @@ class CNAB240
     @cnab240[:trailer_de_lote][:valor_saldo_final].to_f / 100
   end
 
-
-
   def get_transactions
-    t = @cnab240[:detalhe_segmento_e].map do |h|
+    t = @cnab240[:detalhe_segmento_e].map do |t|
        hash = Hash.new
-       hash[:dtposted] = h[:data_lançamento].date_convert("%d%m%Y", "%Y%m%d")
-       hash[:trnamt] = h[:valor_lançamento].to_f / 100
+       hash[:dtposted] = t[:data_lançamento].date_convert("%d%m%Y", "%Y%m%d")
+       hash[:trnamt] = t[:valor_lançamento].to_f / 100
+       hash[:checknum] = checknum(t)
+       hash[:fitid] = "20" + hash[:checknum]
+       hash[:memo] = t[:desc_histórico].strip.trim_lzeroes + " - " + t[:num_documento].strip.trim_lzeroes
        hash
     end
-    puts "Transactions"
-    pp t
   end
-    
+
+  def checknum(t)
+    t[:data_lançamento].date_convert("%d%m%Y", "%y%m%d") + #31122013 -> 131231
+    t[:valor_lançamento][-8,8] +
+    (t[:desc_histórico]+t[:num_documento]).unpack("C*").reduce(:+).to_s
+  end
 end
 
+filename = ARGV[0] 
 
-
-filename = ARGV[0] || "UnicredLucas.2013.03.3aVersao.txt"
+raise "Forneça o caminho para um arquivo CNAB240" if ARGV[0].nil?
 
 cnab240 = CNAB240.new(filename)
 
-pp cnab240.cnab240
-pp cnab240.dtserver
-pp cnab240.fid
-pp cnab240.org
 puts cnab240.to_ofx
-p cnab240.to_ofx.class
+
+#pp cnab240.cnab240
