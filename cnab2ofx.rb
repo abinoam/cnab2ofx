@@ -127,6 +127,7 @@ class CNAB240
     t = @cnab240[:detalhe_segmento_e].map do |h|
        hash = Hash.new
        hash[:dtposted] = h[:data_lançamento].date_convert("%d%m%Y", "%Y%m%d")
+       hash[:trnamt] = h[:valor_lançamento].to_f / 100
        hash
     end
     puts "Transactions"
