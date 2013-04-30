@@ -133,7 +133,10 @@ class CNAB240
     t = @cnab240[:detalhe_segmento_e].map do |t|
        hash = Hash.new
        hash[:dtposted] = t[:data_lançamento].date_convert("%d%m%Y", "%Y%m%d")
-       hash[:trnamt] = t[:valor_lançamento].to_f / 100
+       hash[:trnamt] = (t[:valor_lançamento].to_f / 100).to_s
+       if t[:tipo_lançamento] == "D"   # (D)ebit = Débito
+         hash[:trnamt] = "-"+hash[:trnamt]
+       end
        hash[:checknum] = checknum(t)
        hash[:fitid] = "20" + hash[:checknum]
        hash[:memo] = t[:desc_histórico].strip.trim_lzeroes + " - " + t[:num_documento].strip.trim_lzeroes
