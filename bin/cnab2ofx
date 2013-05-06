@@ -8,7 +8,6 @@ require 'pp'
 require 'date'
 require 'erb'
 require 'cnab240_helper.rb'
-pp $LOAD_PATH
 require 'cnab2ofx'
 
 CONFIG_DIR = File.join ROOT_DIR, 'lib/cnab2ofx/cnab240'
