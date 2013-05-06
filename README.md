@@ -48,9 +48,9 @@ or
 ---------------------------------------
 
 Hosted on:
-* __RubyGems__ :  http://rubygems.org/gems/cnab2ofx/
-* __BitBucket__:  https://bitbucket.org/abinoam/cnab2ofx
 
+* __RubyGems__:   [http://rubygems.org/gems/cnab2ofx/](http://rubygems.org/gems/cnab2ofx/)
+* __BitBucket__:  [https://bitbucket.org/abinoam/cnab2ofx]([https://bitbucket.org/abinoam/cnab2ofx])
 
 [1]: http://ruby-lang.org/ "Ruby Language"
 [2]: http://www.febraban.org.br/Acervo1.asp?id_texto=717&id_pagina=173 "CNAB240"
