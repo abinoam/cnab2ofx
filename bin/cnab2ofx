@@ -7,8 +7,9 @@ require 'yaml'
 require 'pp'
 require 'date'
 require 'erb'
-require File.join(ROOT_DIR, 'helpers/cnab240_helper.rb')
-require File.join(ROOT_DIR, 'lib/cnab2ofx.rb')
+require 'cnab240_helper.rb'
+pp $LOAD_PATH
+require 'cnab2ofx'
 
 CONFIG_DIR = File.join ROOT_DIR, 'lib/cnab2ofx/cnab240'
 VIEW_DIR   =  File.join ROOT_DIR, 'view' 

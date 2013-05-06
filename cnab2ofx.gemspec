@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
   # s.extensions    = `git ls-files ext/extconf.rb`.split("\n")
 
-  s.require_path = 'lib'
+  s.require_paths = ['lib', 'helper']
 
   # For C extensions
   # s.extensions = "ext/extconf.rb"
