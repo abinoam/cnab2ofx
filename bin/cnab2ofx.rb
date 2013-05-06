@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 #encoding:utf-8
 
+ROOT_DIR = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+
 require 'yaml'
 require 'pp'
 require 'date'
 require 'erb'
-require '../helpers/cnab240_helper.rb' 
+require File.join(ROOT_DIR, 'helpers/cnab240_helper.rb')
 
-CONFIG_DIR = 'cnab2ofx/cnab240'
-VIEW_DIR   = '../view' 
+CONFIG_DIR = File.join ROOT_DIR, 'lib/cnab2ofx/cnab240'
+VIEW_DIR   =  File.join ROOT_DIR, 'view' 
+
 
 #TODO: Solve the encoding problem
 

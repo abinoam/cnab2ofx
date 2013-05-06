@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "cnab2ofx"
-  s.version           = "0.0.1"
+  s.version           = "0.0.3"
   s.platform          = Gem::Platform::RUBY
   s.authors           = ["Abinoam Praxedes Marques Junior"]
   s.email             = ["abinoam@gmail.com"]
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   # The list of files to be contained in the gem
   s.files         = `git ls-files`.split("\n")
-  # s.executables   = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
+  s.executables   = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
   # s.extensions    = `git ls-files ext/extconf.rb`.split("\n")
 
   s.require_path = 'lib'
