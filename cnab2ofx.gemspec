@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = s.name
 
   s.required_rubygems_version = ">= 1.3.6"
+  s.required_ruby_version = ">= 1.9.2"
 
   # If you have runtime dependencies, add them here
   # s.add_runtime_dependency "other", "~> 1.2"
@@ -26,4 +27,6 @@ Gem::Specification.new do |s|
 
   # For C extensions
   # s.extensions = "ext/extconf.rb"
+
+  s.post_install_message = "\nA sample generated CNAB240 file is provided at 'test' directory.\n\n"
 end
