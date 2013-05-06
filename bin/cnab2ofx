@@ -13,12 +13,10 @@ require File.join(ROOT_DIR, 'lib/cnab2ofx.rb')
 CONFIG_DIR = File.join ROOT_DIR, 'lib/cnab2ofx/cnab240'
 VIEW_DIR   =  File.join ROOT_DIR, 'view' 
 
-filename = ARGV[0] 
-
-raise "Forneça o caminho para um arquivo CNAB240" if ARGV[0].nil?
-
-cnab240 = CNAB240.new(filename)
-
-puts cnab240.to_ofx
-
-#pp cnab240.cnab240
+if ARGV[0].nil?
+  puts "Usage: cnab2ofx [cnab240_input_file] > [ofx_output_file]"
+else
+  filename = ARGV[0] 
+  cnab240 = CNAB240.new(filename)
+  puts cnab240.to_ofx
+end
