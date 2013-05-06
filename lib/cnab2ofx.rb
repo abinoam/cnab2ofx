@@ -5,10 +5,10 @@ require 'yaml'
 require 'pp'
 require 'date'
 require 'erb'
-require './helpers/cnab240_helper.rb' 
+require '../helpers/cnab240_helper.rb' 
 
-CONFIG_DIR = 'config'
-VIEW_DIR   = 'view' 
+CONFIG_DIR = 'cnab2ofx/cnab240'
+VIEW_DIR   = '../view' 
 
 #TODO: Solve the encoding problem
 
