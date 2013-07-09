@@ -2,7 +2,7 @@
 cnab2ofx 
 ========
 
-**cnab2ofx** é script simples em [Ruby][1] que serve para converter extratos bancários no formato CNAB240 para o formato ofx.
+**cnab2ofx** é um script simples em [Ruby][1] que serve para converter extratos bancários no formato CNAB240 para o formato ofx.
 A Unicred emite extratos nesse formato.
 
 [CNAB240][2] é o formato padrão da [FEBRABAN][3] (Federação Brasileira de Bancos) utilizado para gerar extratos dentre outras transações bancárias.
@@ -25,7 +25,7 @@ ou
 
 cnab2ofx
 ========
-[**English**]
+[ **English** ]
 
 **cnab2ofx** is a simple [Ruby][1] script that can be used to convert from CNAB240 to ofx.
 
@@ -50,7 +50,8 @@ or
 Hosted on:
 
 * __RubyGems__:   [http://rubygems.org/gems/cnab2ofx/](http://rubygems.org/gems/cnab2ofx/)
-* __BitBucket__:  [https://bitbucket.org/abinoam/cnab2ofx]([https://bitbucket.org/abinoam/cnab2ofx])
+* __BitBucket__:  [https://bitbucket.org/abinoam/cnab2ofx](https://bitbucket.org/abinoam/cnab2ofx)
+* __GitHub__:     [https://github.com/abinoam/cnab2ofx](https://github.com/abinoam/cnab2ofx)
 
 [1]: http://ruby-lang.org/ "Ruby Language"
 [2]: http://www.febraban.org.br/Acervo1.asp?id_texto=717&id_pagina=173 "CNAB240"
