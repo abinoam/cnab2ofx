@@ -1,10 +1,19 @@
+# coding: utf-8
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'cnab2ofx/version'
+
+GEM_VERSION = CNAB240::VERSION
+
 Gem::Specification.new do |s|
   s.name              = "cnab2ofx"
-  s.version           = "0.0.5"
+  s.version           = GEM_VERSION
   s.platform          = Gem::Platform::RUBY
   s.authors           = ["Abinoam Praxedes Marques Junior"]
   s.email             = ["abinoam@gmail.com"]
-  s.homepage          = "https://bitbucket.org/abinoam/cnab2ofx"
+  s.homepage          = "https://github.com/abinoam/cnab2ofx"
   s.summary           = "CNAB240 to ofx conversion script"
   s.description       = "A small and simple script that can be used to convert CNAB240 to ofx financial formats"
   s.rubyforge_project = s.name
