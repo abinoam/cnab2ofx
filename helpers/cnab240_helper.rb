@@ -1,7 +1,5 @@
 module CNAB240Helper
-
   module StringHelper
-
     def trim_lzeroes
       self.sub(/^0+/,"")
     rescue ArgumentError => e
@@ -14,7 +12,5 @@ module CNAB240Helper
       from_date = DateTime.strptime(self,from) # Import from 'from' DateTime format
       to_date = from_date.strftime(to) # Export to 'to' DateTime format
     end
-
   end
-
 end

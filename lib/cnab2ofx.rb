@@ -96,13 +96,25 @@ class CNAB240
   end
 
   def get_branchid
-    @cnab240[:header_de_arquivo][:agência].trim_lzeroes + "-" +
-    @cnab240[:header_de_arquivo][:agência_dv].trim_lzeroes
+    agência = @cnab240[:header_de_arquivo][:agência].trim_lzeroes
+    agência_dv = @cnab240[:header_de_arquivo][:agência_dv].trim_lzeroes
+
+    if agência_dv.empty?
+      agência
+    else
+      agência + "-" + agência_dv
+    end
   end
 
   def get_acctid
-    @cnab240[:header_de_arquivo][:conta_corrente].trim_lzeroes + "-" +
-    @cnab240[:header_de_arquivo][:conta_corrente_dv].trim_lzeroes
+    conta_corrente = @cnab240[:header_de_arquivo][:conta_corrente].trim_lzeroes
+    conta_corrente_dv = @cnab240[:header_de_arquivo][:conta_corrente_dv].trim_lzeroes
+
+    if conta_corrente_dv.empty?
+      conta_corrente
+    else
+      conta_corrente + "-" + conta_corrente_dv
+    end
   end
 
   def get_balamt
